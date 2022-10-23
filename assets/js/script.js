@@ -109,6 +109,8 @@ var Qselection = function (question) {
     ansD.textContent = question.d;
     ansD.addEventListener("click", answerClick);
 
+
+// appending the container to the questioner
     questioncontainer.appendChild(qheader);
     questioncontainer.appendChild(ansA);
     questioncontainer.appendChild(ansB);
@@ -116,5 +118,35 @@ var Qselection = function (question) {
     questioncontainer.appendChild(ansD);
 }
 
+// answering the click of stated event to start quiz
+
+var currentqq = 0;
+var users = 0;
+var rightans = question[currentqq].correct;
+var views = document.getElementById("vscore");
+
+// giving the determination of the correct answer
+var answerClick = function(event) {
+    event.preventDefault();
+    var userans = event.target.textContent;
+    rightans = question[currentqq].correct;
+
+    var anschoice = document.querySelector("#corans");
+    if (userans !== rightans) {
+        adjustTime(-10);
+        anschoice.textContent = "wrong answer!";
+        currentqq++;
+        if (currentqq >= question.length) {
+            endquiz();
+        }
+        else {Qselection(question[currentqq])};
+    }
+};
+
+// stating quz questionair event
+
+var quiz = function (event) {
+    
+}
 
 
