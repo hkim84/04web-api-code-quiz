@@ -56,5 +56,39 @@ var question = [{
 }
 ];
 
+// stating my variables 
 var startclicker = document.getElementById("start");
+var timeEl = document.getElementById("counter");
+var rtime = 60;
+var quiztime;
+var questioncontainer = document.querySelector("#qcbtn");
+
+// Add function for timer
+
+function timer() {
+    timeEl.textContent = "Remaining time: "+ rtime + "s";
+    quiztime = setInterval(function (){
+        if (rtime > 0) {
+            adjustTime(-1);
+        }
+        else {
+            endquiz();
+        }
+    }, 1000);
+}
+function adjustTime(amount) {
+    rtime += amount;
+    if (rtime < 0) {
+        rtime = 0;
+    }
+    timeEl.textContent = "Remaining time:" + rtime + "s";
+}
+
+// adding an click event
+
+clickstart.onclick = timer;
+var Qselection = function (question) {
+    q
+}
+
 
