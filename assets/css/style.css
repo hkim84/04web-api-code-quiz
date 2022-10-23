@@ -6,6 +6,11 @@ body {
     
 }
 
+h2 {
+    float: left;
+}
+
+
 button {
     padding: 5px;
     margin: 10px;
@@ -19,3 +24,4 @@ button {
     display: flex block;
     margin: 10px;
 }
+
