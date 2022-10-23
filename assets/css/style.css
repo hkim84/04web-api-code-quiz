@@ -1,0 +1,21 @@
+body {
+    text-align:center;
+    font-family:'Times New Roman', Times, serif;
+    background-color: blue;
+    color:azure;
+    
+}
+
+button {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 30px;
+    Background-color: orange;
+    color:azure;
+}
+
+.qcbtn {
+    justify-content:center;
+    display: flex block;
+    margin: 10px;
+}
