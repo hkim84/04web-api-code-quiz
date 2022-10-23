@@ -88,7 +88,33 @@ function adjustTime(amount) {
 
 clickstart.onclick = timer;
 var Qselection = function (question) {
-    q
+    questioncontainer.innerHTML = "";
+
+    var qheader =document.createElement("h2");
+    qheader.textContent = question.q;
+
+    var ansA = document.createElement("button");
+    ansA.textContent = question.a;
+    ansA.addEventListener("click", answerClick);
+
+    var ansB = document.createElement("button");
+    ansB.textContent = question.b;
+    ansB.addEventListener("click", answerClick);
+
+    var ansC = document.createElement("button");
+    ansC.textContent = question.c;
+    ansC.addEventListener("click", answerClick);
+
+    var ansD = document.createElement("button");
+    ansD.textContent = question.d;
+    ansD.addEventListener("click", answerClick);
+
+    questioncontainer.appendChild(qheader);
+    questioncontainer.appendChild(ansA);
+    questioncontainer.appendChild(ansB);
+    questioncontainer.appendChild(ansC);
+    questioncontainer.appendChild(ansD);
 }
+
 
 
