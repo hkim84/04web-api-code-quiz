@@ -86,7 +86,7 @@ function adjustTime(amount) {
 
 // adding an click event
 
-clickstart.onclick = timer;
+startclicker.onclick = timer;
 var Qselection = function (question) {
     questioncontainer.innerHTML = "";
 
@@ -176,7 +176,7 @@ function highscore() {
     let name = getData.name;
     let score = getData.score;
     questioncontainer.innerHTML = "";
-    questioncontainer.innerHTML = name + " " + score;
+    questioncontainer.innerHTML = `${name} ${score}`;
 }
 
 views.addEventListener("click", () => {
@@ -191,7 +191,7 @@ function endquiz() {
     var endpage = document.createElement("h2");
     questioncontainer.appendChild(endpage);
 
-    let blank = document.querySelector("corans");
+    let blank = document.querySelector("#corans");
     blank.innerHTML = " ";
 
 endpage.innerHTML = "Finished! your scorre is " + userscore + ". Enter initial and submit";
@@ -201,16 +201,16 @@ blank.appendChild(intbox);
 
 var submitintbtn = document.createElement("button");
 submitintbtn.textContent = "Submit";
-blank.appendChild<submitintbtn;
+blank.appendChild(submitintbtn);
 
 submitintbtn.addEventListener("click", () => {
-    if (initialBox.value.length === 0) return false;
+    if (intbox.value.length === 0) return false;
 
     let storeInitials = (...input) => {
         let data = JSON.stringify({ "name":input[0], "score":input[1]})
         localStorage.setItem("object", data)
     }
-    storeInitials(initialBox.value, userScore);
+    storeInitials(intbox.value, userscore);
 
     var playAgain = document.createElement("button");
     playAgain.textContent= "Play Again!";
@@ -223,14 +223,14 @@ submitintbtn.addEventListener("click", () => {
 
     document.querySelector("input").value = "";
 
-    initialBox.addEventListener("submit", endquiz);
+    intbox.addEventListener("submit", endquiz);
 
 };
 function renderInitials() {
-    submitInitialBtn.addEventListener('click', function(event) {
+    submitintbtn.addEventListener('click', function(event) {
         event.preventDefault;
 }
 )};
 
-clickstart.addEventListener('click', quiz);
+startclicker.addEventListener('click', quiz);
 
