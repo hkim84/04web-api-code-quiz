@@ -6,8 +6,18 @@ body {
     
 }
 
+.vscore {
+    position: relative;
+    top: 50%;
+    right: 40%;
 
+}
 
+.counter {
+    position: relative;
+    top:50%;
+    left: 40%;
+}
 
 button {
     padding: 5px;

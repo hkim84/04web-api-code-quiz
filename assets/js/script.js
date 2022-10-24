@@ -177,6 +177,7 @@ function highscore() {
     let score = getData.score;
     questioncontainer.innerHTML = "";
     questioncontainer.innerHTML = `${name} ${score}`;
+
 }
 
 views.addEventListener("click", () => {
@@ -194,7 +195,7 @@ function endquiz() {
     let blank = document.querySelector("#corans");
     blank.innerHTML = " ";
 
-endpage.innerHTML = "Finished! your scorre is " + userscore + ". Enter initial and submit";
+endpage.innerHTML = "Finished! your score is " + userscore + ". Enter initial and submit";
 
 var intbox = document.createElement("input");
 blank.appendChild(intbox);
