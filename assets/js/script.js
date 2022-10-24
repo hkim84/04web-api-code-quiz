@@ -121,7 +121,7 @@ var Qselection = function (question) {
 // answering the click of stated event to start quiz
 
 var currentqq = 0;
-var users = 0;
+var userscore = 0;
 var rightans = question[currentqq].correct;
 var views = document.getElementById("vscore");
 
@@ -141,12 +141,96 @@ var answerClick = function(event) {
         }
         else {Qselection(question[currentqq])};
     }
+        else if (userans === rightans) {
+            currentqq++;
+            anschoice.textContent = "correct answer!";
+            userscore++;
+            if (currentqq >= question.length) {
+                endquiz();
+            }
+            else (Qselection(question[currentqq]))
+        };
 };
 
 // stating quz questionair event
 
 var quiz = function (event) {
-    
+    event.preventDefault();
+    resetDisplay();
+    Qselection(question[currentqq]);
+};
+
+// Reset of page when submit and play again
+
+function resetDisplay() {
+    questioncontainer.innerHTML="";
+    document.querySelector("#page").style.dispaly = "none";
 }
 
+
+// json to store information into the browser
+
+function highscore() {
+    let data = localStorage.getItem("object");
+    let getData = JSON.parse(data);
+    let name = getData.name;
+    let score = getData.score;
+    questioncontainer.innerHTML = "";
+    questioncontainer.innerHTML = name + " " + score;
+}
+
+views.addEventListener("click", () => {
+    highscore();
+})
+
+var initials;
+function endquiz() {
+    resetDisplay();
+    timeEl.textContent = "";
+    clearInterval(quiztime);
+    var endpage = document.createElement("h2");
+    questioncontainer.appendChild(endpage);
+
+    let blank = document.querySelector("corans");
+    blank.innerHTML = " ";
+
+endpage.innerHTML = "Finished! your scorre is " + userscore + ". Enter initial and submit";
+
+var intbox = document.createElement("input");
+blank.appendChild(intbox);
+
+var submitintbtn = document.createElement("button");
+submitintbtn.textContent = "Submit";
+blank.appendChild<submitintbtn;
+
+submitintbtn.addEventListener("click", () => {
+    if (initialBox.value.length === 0) return false;
+
+    let storeInitials = (...input) => {
+        let data = JSON.stringify({ "name":input[0], "score":input[1]})
+        localStorage.setItem("object", data)
+    }
+    storeInitials(initialBox.value, userScore);
+
+    var playAgain = document.createElement("button");
+    playAgain.textContent= "Play Again!";
+    blank.appendChild(playAgain);
+
+    playAgain.addEventListener("click", () => {
+        location.reload();
+    })
+});
+
+    document.querySelector("input").value = "";
+
+    initialBox.addEventListener("submit", endquiz);
+
+};
+function renderInitials() {
+    submitInitialBtn.addEventListener('click', function(event) {
+        event.preventDefault;
+}
+)};
+
+clickstart.addEventListener('click', quiz);
 
