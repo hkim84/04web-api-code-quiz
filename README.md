@@ -9,7 +9,7 @@ this website has a questionaire within a game quiz style. it also logs your high
 to learn how to renderthing into html using javascript
 
 ## Screenshot
-![website](/assets/images/Web%20capture_23-10-2022_185956_.jpeg)
+![website](/assets/images/Web%20capture_23-10-2022_195712_.jpeg)
 
 ## Deployable website
 
